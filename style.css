@@ -1,0 +1,17 @@
+.bloco{
+    margin-top: 0px;
+    height: 100%; 
+    overflow: auto;
+    display: flex;
+}
+
+.bloco img{
+    width: 150px;
+    height: 150px;
+    display: block; /* Garante que as imagens fiquem em blocos */  
+    align-items: center;   
+}
+
+img: nth-child(odd) {
+    background-color: #e74c3c; /* Cor de fundo ímpar */
+}

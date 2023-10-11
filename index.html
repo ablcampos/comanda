@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exibir Imagem Base64 do JSON</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+        <div class="bloco">
+       
+                <div id="container">
+                    
+                    <script>                        
+                        // URL do arquivo JSON no GitHub
+                        const url = 'https://raw.githubusercontent.com/ablcampos/curriculun2/main/json4.json'        
+
+                        fetch(url)
+                            .then(response => response.json())
+                            .then(data => {
+                                // Selecionar o elemento HTML da lista
+                                var container = document.getElementById('container');
+                
+                                 // Percorrer o array JSON e criar elementos de lista HTML
+                                data.forEach(function(item) {                             
+                                        var listItem = document.createElement('img');
+                                        listItem.src = item.figura;
+                                        
+                                        // Adicionar o item à lista                                                                     
+                                        container.appendChild(listItem);      
+                                });
+                            })
+                        .catch(error => {
+                             console.error('Erro ao ler o arquivo JSON:', error);
+                        });
+                
+                    </script>
+                    
+
+                </div>
+        </div>
+</body>
+</html>
+
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <style>
+        /* Estilos CSS para a lista */
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+        }
+
+        img {
+            max-width: 100px;
+            margin-right: 10px;
+        }
+
+        .descricao {
+            background-color: #3498db;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body> -->
+    <!-- Lista não ordenada onde os itens JSON serão exibidos -->
+    <!-- <ul id="listaJSON"></ul>
+
+    <script>
+        // Dados JSON de exemplo
+        var dadosJSON = [
+            { imagem: "imagem1.jpg", descricao: "Descrição da imagem 1" },
+            { imagem: "imagem2.jpg", descricao: "Descrição da imagem 2" },
+            { imagem: "imagem3.jpg", descricao: "Descrição da imagem 3" }
+        ];
+
+        // Seleciona a lista HTML
+        var listaHTML = document.getElementById("listaJSON");
+
+        // Percorre os dados JSON e cria elementos <li> para cada item
+        for (var i = 0; i < dadosJSON.length; i++) {
+            var item = dadosJSON[i];
+            var li = document.createElement("li");
+
+            // Cria a imagem
+            var img = document.createElement("img");
+            img.src = item.imagem;
+            li.appendChild(img);
+
+            // Cria a descrição
+            var descricao = document.createElement("div");
+            descricao.classList.add("descricao");
+            descricao.textContent = item.descricao;
+            li.appendChild(descricao);
+
+            listaHTML.appendChild(li);
+        }
+    </script>
+</body>
+</html> -->
